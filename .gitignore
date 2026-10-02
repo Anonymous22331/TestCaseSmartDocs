@@ -1,0 +1,25 @@
+# Build artifacts
+bin/
+obj/
+[Bb]uild/
+[Dd]ist/
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Node
+node_modules/
+*.tsbuildinfo
+artifacts/
