@@ -1,6 +1,6 @@
 import { Counterparty, CounterpartyService, CounterpartyViewState, CounterpartyWidget } from "./counterparty";
 
-export function openCounterpartyDialog(service: CounterpartyService, cardId: string): HTMLDialogElement {
+export function openCounterpartyDialog(service: CounterpartyService, cardId: string, options: { preview?: boolean } = {}): HTMLDialogElement {
     const dialog = document.createElement("dialog");
     dialog.setAttribute("aria-label", "Данные контрагента CRM");
     const title = document.createElement("h2");
@@ -15,7 +15,7 @@ export function openCounterpartyDialog(service: CounterpartyService, cardId: str
     label.append(input);
     const submit = document.createElement("button");
     submit.type = "submit";
-    submit.textContent = "Получить и сохранить";
+    submit.textContent = options.preview ? "Получить тестовые данные" : "Получить и сохранить";
     const close = document.createElement("button");
     close.type = "button";
     close.textContent = "Закрыть";
@@ -32,7 +32,9 @@ export function openCounterpartyDialog(service: CounterpartyService, cardId: str
         loading = state.loading;
         input.disabled = submit.disabled = loading;
         dialog.setAttribute("aria-busy", String(loading));
-        status.textContent = loading ? "Загрузка…" : state.error || (state.counterparty ? "Данные сохранены в карточке." : "");
+        status.textContent = loading ? "Загрузка…" : state.error || (state.counterparty
+            ? (options.preview ? "Тестовые данные загружены. Запись в карточку не выполнялась." : "Данные сохранены в карточке.")
+            : "");
         details.replaceChildren();
         if (!state.counterparty) return;
         const fields: [keyof Counterparty, string][] = [

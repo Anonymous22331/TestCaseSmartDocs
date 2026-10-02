@@ -6,7 +6,8 @@
   "scripts": {
     "check": "tsc --noEmit",
     "build": "rollup -c",
-    "test": "node --test tests/counterparty.test.cjs"
+    "test": "node --test tests/counterparty.test.cjs tests/preview.test.cjs",
+    "preview": "npm run build && node preview/server.cjs"
   },
   "keywords": [],
   "author": "",

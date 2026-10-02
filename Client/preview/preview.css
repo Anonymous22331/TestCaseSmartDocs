@@ -1,0 +1,33 @@
+/* Scope the preview shell so it does not restyle the shared extension dialog. */
+body { margin: 0; background: #f5f7fa; }
+.preview-page {
+    box-sizing: border-box;
+    max-width: 720px;
+    margin: 64px auto;
+    padding: 32px;
+    background: white;
+    border: 1px solid #dce2eb;
+    border-radius: 16px;
+    color: #202c40;
+    font: 16px/1.6 system-ui, sans-serif;
+}
+.preview-page h1 { font-size: 28px; line-height: 1.25; }
+.preview-page .badge { color: #355ca0; font-size: 14px; }
+.preview-page .controls { display: grid; gap: 10px; margin: 24px 0; }
+.preview-page select, .preview-page button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b6c1d2;
+    border-radius: 6px;
+    background: white;
+    color: inherit;
+    font: inherit;
+}
+.preview-page button { margin-top: 12px; border-color: #2759a5; background: #2759a5; color: white; cursor: pointer; }
+.preview-page button:hover { background: #1d4788; }
+.preview-page :focus-visible { outline: 3px solid #739cea; outline-offset: 3px; }
+.preview-page .hint { color: #526077; font-size: 14px; }
+@media (max-width: 760px) {
+    .preview-page { margin: 16px; padding: 24px; }
+}
